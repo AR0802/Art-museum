@@ -1,0 +1,8 @@
+<div class="gallery">
+	<div class="gallery-items">
+		@for (art of arts; track art.id) {
+			<app-gallery-art-item />
+		}
+	</div>
+	<app-pagination />
+</div>

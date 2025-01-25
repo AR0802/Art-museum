@@ -1,0 +1,16 @@
+.topic {
+	text-align: center;
+	margin: 2rem 0;
+}
+
+.topic-span {
+	color: #e0a449;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.topic-p {
+	font-size: 28px;
+	font-weight: 500;
+	margin-top: -0.5rem;
+}

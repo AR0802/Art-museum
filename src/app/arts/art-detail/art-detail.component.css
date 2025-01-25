@@ -1,0 +1,97 @@
+.detail-image {
+	width: 25rem;
+	height: 25rem;
+	position: absolute;
+	top: 10rem;
+	left: 15rem;
+}
+
+.detail-description {
+	position: absolute;
+	top: 9.8rem;
+	left: 44rem;
+	width: 33rem;
+	font-size: 26px;
+	font-weight: 500;
+	line-height: 34px;
+}
+
+.detail-author {
+	position: absolute;
+	top: 15rem;
+	left: 44rem;
+	color: #e0a449;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.detail-years {
+	position: absolute;
+	top: 17rem;
+	left: 44rem;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.detail-overview {
+	position: absolute;
+	top: 23rem;
+	left: 44rem;
+	font-size: 26px;
+	font-weight: 500;
+}
+
+.detail-overview-name {
+	color: #e0a449;
+}
+
+.detail-overview-desc {
+	color: #000;
+}
+
+.detail-overview-nacionality {
+	position: absolute;
+	top: 26rem;
+	left: 44rem;
+}
+
+.detail-overview-dimensions {
+	position: absolute;
+	top: 28rem;
+	left: 44rem;
+}
+
+.detail-overview-credit {
+	position: absolute;
+	top: 30rem;
+	left: 44rem;
+}
+
+.detail-overview-repository {
+	position: absolute;
+	top: 32rem;
+	left: 44rem;
+}
+
+.detail-privacy {
+	position: absolute;
+	top: 33.9rem;
+	left: 44rem;
+	font-size: 16px;
+}
+
+.detail-favorite-icon {
+	position: absolute;
+	background-color: #fff;
+	border-radius: 2rem;
+	left: 35.8rem;
+	top: 11rem;
+	cursor: pointer;
+	transition: transform 1s ease-in-out;
+}
+
+.detail-favorite-icon:hover {
+	.detail-favorite-icon-color {
+		fill: #da740a;
+	}
+}

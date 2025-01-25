@@ -1,0 +1,57 @@
+.gallery-art-item {
+	margin-bottom: -3rem;
+}
+
+.gallery-art-item-image {
+	width: 18rem;
+	height: 20rem;
+}
+
+.gallery-art-item-container {
+	position: relative;
+	left: 5.5%;
+	transform: translate(0, -50%);
+	background: #fff;
+	width: 16rem;
+	height: 7rem;
+	border: 1px solid #e6e4e4;
+}
+
+.gallery-art-item-description {
+	position: absolute;
+	top: 14%;
+	left: 8%;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.gallery-art-item-author {
+	position: absolute;
+	top: 37%;
+	left: 8%;
+	color: #e0a449;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.gallery-art-item-privacy {
+	position: absolute;
+	top: 68%;
+	left: 8%;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.gallery-art-item-favorite-icon {
+	position: absolute;
+	right: 1rem;
+	top: 50%;
+	transform: translate(0, -50%);
+	cursor: pointer;
+}
+
+.gallery-art-item-favorite-icon:hover {
+	.gallery-art-item-favorite-icon-color {
+		fill: #da740a;
+	}
+}

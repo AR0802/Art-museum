@@ -1,0 +1,12 @@
+ngb-pagination /deep/ .page-item .page-link {
+	background-color: #fafafa;
+	color: #000;
+	border: 1px solid #fafafa;
+	box-shadow: none;
+	border-radius: 5px;
+}
+
+ngb-pagination /deep/ .page-item.active .page-link {
+	background-color: #e77a07;
+	color: #fff;
+}

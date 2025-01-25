@@ -1,0 +1,7 @@
+.art-list {
+	margin: 0 16% 9rem;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 1rem;
+}

@@ -1,0 +1,7 @@
+<div class="art-list">
+	@if (arts.length) {
+		@for (art of arts; track art.id) {
+			<app-art-item />
+		}
+	}
+</div>

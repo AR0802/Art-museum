@@ -1,0 +1,19 @@
+.footer {
+	position: relative;
+	background: #fff;
+	height: 4rem;
+	margin-top: -4rem;
+}
+
+.footer-name {
+	position: absolute;
+	left: 15%;
+	top: 50%;
+	transform: translate(0, -50%);
+	color: #000;
+}
+
+.footer-name-highlighted {
+	color: #e0a449;
+	font-weight: bold;
+}

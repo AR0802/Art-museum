@@ -1,0 +1,55 @@
+.art-item {
+	position: relative;
+	background: #fff;
+	width: 20rem;
+	height: 8rem;
+	border: 1px solid #e6e4e4;
+}
+
+.art-item-image {
+	width: 5rem;
+	height: 5rem;
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	margin: 0 0.7rem;
+}
+
+.art-item-description {
+	position: absolute;
+	top: 14%;
+	left: 33%;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.art-item-author {
+	position: absolute;
+	top: 37%;
+	left: 33%;
+	color: #e0a449;
+	font-size: 14px;
+}
+
+.art-item-privacy {
+	position: absolute;
+	top: 68%;
+	left: 33%;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.art-item-favorite-icon {
+	position: absolute;
+	right: 0.7rem;
+	top: 50%;
+	transform: translate(0, -50%);
+	cursor: pointer;
+	transition: transform 1s ease-in-out;
+}
+
+.art-item-favorite-icon:hover {
+	.art-item-favorite-icon-color {
+		fill: #da740a;
+	}
+}

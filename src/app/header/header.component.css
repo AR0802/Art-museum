@@ -1,0 +1,35 @@
+.header {
+	position: relative;
+	background: linear-gradient(#343333 100%, #484848 100%, #282828 100%);
+	height: 4rem;
+}
+
+.header-name {
+	position: absolute;
+	left: 15%;
+	top: 50%;
+	transform: translate(0, -50%);
+	color: white;
+}
+
+.header-name-highlighted {
+	color: #e0a449;
+	font-weight: bold;
+}
+
+.header-nav {
+	position: absolute;
+	right: 15%;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.header-nav-a {
+	margin: 0 1rem;
+	color: white;
+	text-decoration: none;
+}
+
+.header-nav-a.active {
+	color: #e0a449;
+}
