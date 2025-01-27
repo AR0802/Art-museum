@@ -12,6 +12,7 @@ export default [
 	{
 		rules: {
 			'no-undef': 'warn',
+			'@typescript-eslint/no-explicit-any': 'off',
 		},
 	},
 	{

@@ -3,33 +3,44 @@
 		class="detail-image"
 		loading="lazy"
 		src="https://www.artic.edu/iiif/2/{{
-			art?.image_id
+			art.image_id
 		}}/full/843,/0/default.jpg"
-		[alt]="art?.title"
+		[alt]="art.title"
 	/>
 	<p class="detail-description">
-		{{ art?.title }}
+		{{ art.title }}
 	</p>
-	<span class="detail-author">{{ art?.artist_title }}</span>
-	<span class="detail-date">{{ art?.date_display }}</span>
+	<span class="detail-author">{{ art.artist_title }}</span>
+	<span class="detail-date">{{ art.date_display }}</span>
 	<span class="detail-overview">Overview</span>
 	<span class="detail-overview-style-name">Style: </span>
-	<span class="detail-overview-style-desc">{{
-		art?.style_title ? art?.style_title : 'Unknown'
-	}}</span>
+	<a
+		[title]="art.style_title ? art.style_title : 'Unknown'"
+		class="detail-overview-style-desc"
+		>{{ art.style_title ? art.style_title : 'Unknown' }}</a
+	>
 	<span class="detail-overview-dimensions-name">Dimensions sheet: </span>
-	<span class="detail-overview-dimensions-desc">{{ art?.dimensions }}</span>
+	<a [title]="art.dimensions" class="detail-overview-dimensions-desc">{{
+		art.dimensions
+	}}</a>
 	<span class="detail-overview-credit-name">Credit Line: </span>
-	<span class="detail-overview-credit-desc">{{ art?.credit_line }}</span>
+	<a [title]="art.credit_line" class="detail-overview-credit-desc">{{
+		art.credit_line
+	}}</a>
 	<span class="detail-overview-place-name">Place of origin: </span>
-	<span class="detail-overview-place-desc">{{
-		art?.place_of_origin ? art?.place_of_origin : 'Unknown'
-	}}</span>
-	<span class="detail-privacy">{{
-		art?.is_public_domain ? 'Public' : 'Private'
-	}}</span>
+	<a
+		[title]="art.place_of_origin ? art.place_of_origin : 'Unknown'"
+		class="detail-overview-place-desc"
+		>{{ art.place_of_origin ? art.place_of_origin : 'Unknown' }}</a
+	>
+	<a
+		[title]="art.is_public_domain ? 'Public' : 'Private'"
+		class="detail-privacy"
+		>{{ art.is_public_domain ? 'Public' : 'Private' }}</a
+	>
 	<svg
 		class="detail-favorite-icon"
+		(click)="onAddToFavorites()"
 		xmlns="http://www.w3.org/2000/svg"
 		id="Layer_1"
 		data-name="Layer 1"
@@ -42,7 +53,9 @@
 	>
 		<g width="100%" height="100%" transform="matrix(1,0,0,1,0,0)">
 			<path
-				class="detail-favorite-icon-color"
+				class="{{
+					favorite ? 'detail-favorite' : ''
+				}} detail-favorite-icon-color"
 				d="m15,8v6l-3-2.25-3,2.25v-6c0-.551.448-1,1-1h4c.552,0,1,.449,1,1Zm9,4c0,6.617-5.383,12-12,12S0,18.617,0,12,5.383,0,12,0s12,5.383,12,12Zm-7-4c0-1.654-1.346-3-3-3h-4c-1.654,0-3,1.346-3,3v10l5-3.75,5,3.75v-10Z"
 				fill="#e0a449"
 				fill-opacity="1"

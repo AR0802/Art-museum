@@ -10,7 +10,7 @@
 	position: absolute;
 	top: 9.8rem;
 	left: 44rem;
-	width: 40rem;
+	width: 32.5rem;
 	height: 4.4rem;
 	font-size: 26px;
 	font-weight: 500;
@@ -54,10 +54,12 @@
 	position: absolute;
 	top: 26rem;
 	left: 46.8rem;
-	width: 37rem;
+	width: 42.7rem;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	text-decoration: none;
+	color: #000;
 }
 
 .detail-overview-dimensions-name {
@@ -71,10 +73,12 @@
 	position: absolute;
 	top: 28rem;
 	left: 52.5rem;
-	width: 32rem;
+	width: 24rem;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	text-decoration: none;
+	color: #000;
 }
 
 .detail-overview-credit-name {
@@ -88,10 +92,12 @@
 	position: absolute;
 	top: 30rem;
 	left: 49.5rem;
-	width: 35rem;
+	width: 27rem;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	text-decoration: none;
+	color: #000;
 }
 
 .detail-overview-place-name {
@@ -105,6 +111,8 @@
 	position: absolute;
 	top: 32rem;
 	left: 51rem;
+	text-decoration: none;
+	color: #000;
 }
 
 .detail-privacy {
@@ -112,6 +120,8 @@
 	top: 33.9rem;
 	left: 44rem;
 	font-size: 16px;
+	text-decoration: none;
+	color: #000;
 }
 
 .detail-favorite-icon {
@@ -128,4 +138,8 @@
 	.detail-favorite-icon-color {
 		fill: #da740a;
 	}
+}
+
+.detail-favorite.detail-favorite-icon-color {
+	fill: #da740a;
 }

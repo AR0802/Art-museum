@@ -50,15 +50,16 @@
 
 .art-item-favorite-icon {
 	position: absolute;
-	right: 0.7rem;
-	top: 50%;
-	transform: translate(0, -50%);
+	transform: translate(518%, -180%);
 	cursor: pointer;
-	transition: transform 1s ease-in-out;
 }
 
 .art-item-favorite-icon:hover {
 	.art-item-favorite-icon-color {
 		fill: #da740a;
 	}
+}
+
+.art-item-favorite.art-item-favorite-icon-color {
+	fill: #da740a;
 }

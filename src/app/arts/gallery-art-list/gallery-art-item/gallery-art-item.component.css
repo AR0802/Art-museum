@@ -53,9 +53,7 @@
 
 .gallery-art-item-favorite-icon {
 	position: absolute;
-	right: 1rem;
-	top: 50%;
-	transform: translate(0, -50%);
+	transform: translate(408%, -180%);
 	cursor: pointer;
 }
 
@@ -63,4 +61,8 @@
 	.gallery-art-item-favorite-icon-color {
 		fill: #da740a;
 	}
+}
+
+.gallery-art-item-favorite.gallery-art-item-favorite-icon-color {
+	fill: #da740a;
 }

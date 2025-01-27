@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { ArtItemComponent } from './art-item/art-item.component';
 import { Art } from '../art.model';
 import { ArtsService } from '../arts.service';
-import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-art-list',
@@ -13,19 +13,24 @@ import { Subscription } from 'rxjs';
 })
 export class ArtListComponent implements OnInit, OnDestroy {
 	artList: Art[] | undefined;
-	subscription!: Subscription;
+	subscription: Subscription | undefined;
+	@Input() favoriteArts: Art[] | undefined;
 
 	constructor(private artsService: ArtsService) {}
 
 	ngOnInit(): void {
-		this.subscription = this.artsService
-			.getArtList()
-			.subscribe(
-				(arts: Partial<{ data: Art[] }>) => (this.artList = arts.data)
-			);
+		if (this.favoriteArts) {
+			this.artList = this.favoriteArts;
+		} else {
+			this.subscription = this.artsService
+				.getArtList()
+				.subscribe(
+					(arts: Partial<{ data: Art[] }>) => (this.artList = arts.data)
+				);
+		}
 	}
 
 	ngOnDestroy(): void {
-		this.subscription.unsubscribe();
+		this.subscription?.unsubscribe();
 	}
 }
