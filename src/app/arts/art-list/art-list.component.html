@@ -1,7 +1,11 @@
 <div class="art-list">
-	@if (arts.length) {
-		@for (art of arts; track art.id) {
-			<app-art-item />
-		}
+	@for (art of artList; track art.id) {
+		<app-art-item
+			[id]="art.id"
+			[description]="art.title"
+			[author]="art.artist_title"
+			[privacy]="art.is_public_domain ? 'Public' : 'Private'"
+			[imageId]="art.image_id"
+		/>
 	}
 </div>

@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { ArtItemComponent } from './art-item/art-item.component';
+import { Art } from '../art.model';
+import { ArtsService } from '../arts.service';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-art-list',
@@ -8,6 +11,21 @@ import { ArtItemComponent } from './art-item/art-item.component';
 	templateUrl: './art-list.component.html',
 	styleUrl: './art-list.component.css',
 })
-export class ArtListComponent {
-	arts = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
+export class ArtListComponent implements OnInit, OnDestroy {
+	artList: Art[] | undefined;
+	subscription!: Subscription;
+
+	constructor(private artsService: ArtsService) {}
+
+	ngOnInit(): void {
+		this.subscription = this.artsService
+			.getArtList()
+			.subscribe(
+				(arts: Partial<{ data: Art[] }>) => (this.artList = arts.data)
+			);
+	}
+
+	ngOnDestroy(): void {
+		this.subscription.unsubscribe();
+	}
 }

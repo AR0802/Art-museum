@@ -1,14 +1,13 @@
-<div class="gallery-art-item">
+<div class="gallery-art-item" (click)="onNavigate()">
 	<img
 		class="gallery-art-item-image"
 		loading="lazy"
-		src="https://indigomusic.com/wp-content/uploads/2024/09/How-Long-Did-The-Godfather-Take-to-Film-1024x576.png"
-		alt=""
+		src="https://www.artic.edu/iiif/2/{{ imageId }}/full/843,/0/default.jpg"
 	/>
 	<div class="gallery-art-item-container">
-		<p class="gallery-art-item-description">Charles 5</p>
-		<span class="gallery-art-item-author">Giovanni Britto</span>
-		<span class="gallery-art-item-privacy">Public</span>
+		<p class="gallery-art-item-description">{{ description }}</p>
+		<span class="gallery-art-item-author">{{ author }}</span>
+		<span class="gallery-art-item-privacy">{{ privacy }}</span>
 		<svg
 			class="gallery-art-item-favorite-icon"
 			xmlns="http://www.w3.org/2000/svg"

@@ -1,31 +1,33 @@
 <div>
 	<img
 		class="detail-image"
-		src="https://indigomusic.com/wp-content/uploads/2024/09/How-Long-Did-The-Godfather-Take-to-Film-1024x576.png"
-		alt=""
+		loading="lazy"
+		src="https://www.artic.edu/iiif/2/{{
+			art?.image_id
+		}}/full/843,/0/default.jpg"
+		[alt]="art?.title"
 	/>
 	<p class="detail-description">
-		Charles V, bust length, holding a sword, facing right
+		{{ art?.title }}
 	</p>
-	<span class="detail-author">Giovanni Britto</span>
-	<span class="detail-years">1535-45</span>
+	<span class="detail-author">{{ art?.artist_title }}</span>
+	<span class="detail-date">{{ art?.date_display }}</span>
 	<span class="detail-overview">Overview</span>
-	<span class="detail-overview-nacionality detail-overview-name"
-		>Artist nacionality: <span class="detail-overview-desc">German</span></span
-	>
-	<span class="detail-overview-dimensions detail-overview-name"
-		>Dimensions sheet:
-		<span class="detail-overview-desc">19 3/8 * 13 11/16 in.</span></span
-	>
-	<span class="detail-overview-credit detail-overview-name"
-		>Credit Line:
-		<span class="detail-overview-desc">Rogers Fund, 1917</span></span
-	>
-	<span class="detail-overview-repository detail-overview-name"
-		>Repository:
-		<span class="detail-overview-desc">Metropolitan Museum of Art</span></span
-	>
-	<span class="detail-privacy">Public</span>
+	<span class="detail-overview-style-name">Style: </span>
+	<span class="detail-overview-style-desc">{{
+		art?.style_title ? art?.style_title : 'Unknown'
+	}}</span>
+	<span class="detail-overview-dimensions-name">Dimensions sheet: </span>
+	<span class="detail-overview-dimensions-desc">{{ art?.dimensions }}</span>
+	<span class="detail-overview-credit-name">Credit Line: </span>
+	<span class="detail-overview-credit-desc">{{ art?.credit_line }}</span>
+	<span class="detail-overview-place-name">Place of origin: </span>
+	<span class="detail-overview-place-desc">{{
+		art?.place_of_origin ? art?.place_of_origin : 'Unknown'
+	}}</span>
+	<span class="detail-privacy">{{
+		art?.is_public_domain ? 'Public' : 'Private'
+	}}</span>
 	<svg
 		class="detail-favorite-icon"
 		xmlns="http://www.w3.org/2000/svg"

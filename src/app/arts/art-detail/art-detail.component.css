@@ -10,22 +10,24 @@
 	position: absolute;
 	top: 9.8rem;
 	left: 44rem;
-	width: 33rem;
+	width: 40rem;
+	height: 4.4rem;
 	font-size: 26px;
 	font-weight: 500;
 	line-height: 34px;
+	overflow: hidden;
 }
 
 .detail-author {
 	position: absolute;
-	top: 15rem;
+	top: 14.5rem;
 	left: 44rem;
 	color: #e0a449;
 	font-size: 18px;
 	font-weight: 500;
 }
 
-.detail-years {
+.detail-date {
 	position: absolute;
 	top: 17rem;
 	left: 44rem;
@@ -41,36 +43,68 @@
 	font-weight: 500;
 }
 
-.detail-overview-name {
-	color: #e0a449;
-}
-
-.detail-overview-desc {
-	color: #000;
-}
-
-.detail-overview-nacionality {
+.detail-overview-style-name {
 	position: absolute;
 	top: 26rem;
 	left: 44rem;
+	color: #e0a449;
 }
 
-.detail-overview-dimensions {
+.detail-overview-style-desc {
+	position: absolute;
+	top: 26rem;
+	left: 46.8rem;
+	width: 37rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.detail-overview-dimensions-name {
 	position: absolute;
 	top: 28rem;
 	left: 44rem;
+	color: #e0a449;
 }
 
-.detail-overview-credit {
+.detail-overview-dimensions-desc {
+	position: absolute;
+	top: 28rem;
+	left: 52.5rem;
+	width: 32rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.detail-overview-credit-name {
 	position: absolute;
 	top: 30rem;
 	left: 44rem;
+	color: #e0a449;
 }
 
-.detail-overview-repository {
+.detail-overview-credit-desc {
+	position: absolute;
+	top: 30rem;
+	left: 49.5rem;
+	width: 35rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.detail-overview-place-name {
 	position: absolute;
 	top: 32rem;
 	left: 44rem;
+	color: #e0a449;
+}
+
+.detail-overview-place-desc {
+	position: absolute;
+	top: 32rem;
+	left: 51rem;
 }
 
 .detail-privacy {

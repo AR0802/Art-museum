@@ -4,6 +4,7 @@
 	width: 20rem;
 	height: 8rem;
 	border: 1px solid #e6e4e4;
+	cursor: pointer;
 }
 
 .art-item-image {
@@ -19,6 +20,10 @@
 	position: absolute;
 	top: 14%;
 	left: 33%;
+	width: 47%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	font-size: 18px;
 	font-weight: 500;
 }
@@ -27,6 +32,10 @@
 	position: absolute;
 	top: 37%;
 	left: 33%;
+	width: 45%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	color: #e0a449;
 	font-size: 14px;
 }
