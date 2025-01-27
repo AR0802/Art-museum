@@ -1,15 +1,21 @@
-<form
-	class="search-form"
-	#searchForm="ngForm"
-	(ngSubmit)="onSubmit(searchForm)"
->
+<form class="search-form">
 	<input
 		class="search-form-input"
 		name="search"
 		type="search"
 		placeholder="Search Art, Artist, Work... "
-		ngModel
-		(keyup)="onSubmit(searchForm)"
-		required
+		[value]="searchString"
+		[formControl]="searchControl"
 	/>
 </form>
+<div class="art-list">
+	@for (art of arts; track $index) {
+		<app-art-item
+			[id]="art.id"
+			[description]="art.title"
+			[author]="art.artist_title"
+			[privacy]="art.is_public_domain ? 'Public' : 'Private'"
+			[imageId]="art.image_id"
+		/>
+	}
+</div>

@@ -7,7 +7,7 @@ export class ArtsService {
 
 	getArtList() {
 		return this.http.get(
-			'https://api.artic.edu/api/v1/artworks?page=5&limit=9'
+			'https://api.artic.edu/api/v1/artworks?page=102&limit=9'
 		);
 	}
 
@@ -19,5 +19,11 @@ export class ArtsService {
 
 	getArtById(id: number) {
 		return this.http.get(`https://api.artic.edu/api/v1/artworks/${id}`);
+	}
+
+	getArtBySearch(name: string) {
+		return this.http.get(
+			`https://api.artic.edu/api/v1/artworks/search?q=${name}&limit=9`
+		);
 	}
 }

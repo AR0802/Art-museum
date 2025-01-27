@@ -8,7 +8,7 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 	styleUrl: './pagination.component.css',
 })
 export class PaginationComponent {
-	totalItems: number = 12;
+	totalItems: number = 15;
 	pageSize: number = 3;
 	currentPage: number = 1;
 	@Output() onChange = new EventEmitter<number>();

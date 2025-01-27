@@ -12,3 +12,11 @@
 	font-size: 15px;
 	margin: 2% 0 3%;
 }
+
+.art-list {
+	margin: 0 16% 4rem;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
