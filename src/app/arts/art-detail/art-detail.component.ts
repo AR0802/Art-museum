@@ -39,7 +39,8 @@ export class ArtDetailComponent implements OnInit, OnDestroy {
 				this.art.title,
 				this.art.artist_title,
 				this.art.is_public_domain,
-				this.art.image_id
+				this.art.image_id,
+				this.art.date_end
 			);
 			localStorage.setItem(String(this.id), JSON.stringify(art));
 		} else {

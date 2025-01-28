@@ -15,6 +15,7 @@ export class ArtItemComponent implements OnInit {
 	@Input() author: string = '';
 	@Input() privacy: string = '';
 	@Input() imageId: string = '';
+	@Input() dateEnd!: number;
 
 	constructor(private router: Router) {}
 
@@ -35,7 +36,8 @@ export class ArtItemComponent implements OnInit {
 				this.description,
 				this.author,
 				this.privacy === 'Public' ? true : false,
-				this.imageId
+				this.imageId,
+				this.dateEnd
 			);
 			localStorage.setItem(String(this.id), JSON.stringify(art));
 		} else {

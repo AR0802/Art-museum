@@ -19,4 +19,21 @@
 	justify-content: flex-start;
 	flex-wrap: wrap;
 	gap: 1rem;
+	position: relative;
+}
+
+.sortByAlphabetButton {
+	position: absolute;
+	right: 2rem;
+	top: -2rem;
+	color: #000;
+	cursor: pointer;
+}
+
+.sortByDateButton {
+	position: absolute;
+	right: 8rem;
+	top: -2rem;
+	color: #000;
+	cursor: pointer;
 }

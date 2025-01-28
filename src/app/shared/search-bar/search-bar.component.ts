@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subscription } from 'rxjs';
 
 import { ArtItemComponent } from '../../arts/art-list/art-item/art-item.component';
@@ -17,16 +17,19 @@ export class SearchBarComponent implements OnInit, OnDestroy {
 	searchSubscription: Subscription | undefined;
 	subscription: Subscription | undefined;
 	searchString: string = '';
-	searchControl = new FormControl();
+	searchControl = new FormControl(this.searchString, [
+		Validators.required,
+		Validators.maxLength(50),
+	]);
 
 	constructor(private artsService: ArtsService) {}
 
 	ngOnInit(): void {
 		this.searchSubscription = this.searchControl.valueChanges
 			.pipe(debounceTime(1000), distinctUntilChanged())
-			.subscribe((newSearchString) => {
+			.subscribe((newSearchString: any) => {
 				this.searchString = newSearchString;
-				if (!newSearchString.trim()) {
+				if (!this.searchControl.valid) {
 					this.arts = [];
 					return;
 				}
@@ -42,6 +45,30 @@ export class SearchBarComponent implements OnInit, OnDestroy {
 						}
 					});
 			});
+	}
+
+	onSortByAlphabet() {
+		for (let j = this.arts.length - 1; j > 0; j--) {
+			for (let i = 0; i < j; i++) {
+				if (this.arts[i].title > this.arts[i + 1].title) {
+					const temp = this.arts[i];
+					this.arts[i] = this.arts[i + 1];
+					this.arts[i + 1] = temp;
+				}
+			}
+		}
+	}
+
+	onSortByEndDate() {
+		for (let j = this.arts.length - 1; j > 0; j--) {
+			for (let i = 0; i < j; i++) {
+				if (this.arts[i].date_end < this.arts[i + 1].date_end) {
+					const temp = this.arts[i];
+					this.arts[i] = this.arts[i + 1];
+					this.arts[i + 1] = temp;
+				}
+			}
+		}
 	}
 
 	ngOnDestroy(): void {

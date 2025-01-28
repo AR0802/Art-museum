@@ -12,7 +12,7 @@ import { ArtsService } from '../arts.service';
 	styleUrl: './art-list.component.css',
 })
 export class ArtListComponent implements OnInit, OnDestroy {
-	artList: Art[] | undefined;
+	artList!: Art[];
 	subscription: Subscription | undefined;
 	@Input() favoriteArts: Art[] | undefined;
 
@@ -24,9 +24,31 @@ export class ArtListComponent implements OnInit, OnDestroy {
 		} else {
 			this.subscription = this.artsService
 				.getArtList()
-				.subscribe(
-					(arts: Partial<{ data: Art[] }>) => (this.artList = arts.data)
-				);
+				.subscribe((arts: any) => (this.artList = arts.data));
+		}
+	}
+
+	onSortByAlphabet() {
+		for (let j = this.artList.length - 1; j > 0; j--) {
+			for (let i = 0; i < j; i++) {
+				if (this.artList[i].title > this.artList[i + 1].title) {
+					const temp = this.artList[i];
+					this.artList[i] = this.artList[i + 1];
+					this.artList[i + 1] = temp;
+				}
+			}
+		}
+	}
+
+	onSortByEndDate() {
+		for (let j = this.artList.length - 1; j > 0; j--) {
+			for (let i = 0; i < j; i++) {
+				if (this.artList[i].date_end < this.artList[i + 1].date_end) {
+					const temp = this.artList[i];
+					this.artList[i] = this.artList[i + 1];
+					this.artList[i + 1] = temp;
+				}
+			}
 		}
 	}
 
