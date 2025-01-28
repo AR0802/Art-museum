@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TopicComponent } from '../../shared/topic/topic.component';
-import { ArtListComponent } from '../art-list/art-list.component';
-import { Art } from '../art.model';
-import { LoaderComponent } from '../../shared/loader/loader.component';
+import { LoaderComponent } from '@components/loader/loader.component';
+import { TopicComponent } from '@components/topic/topic.component';
+import { ArtListComponent } from '@components/art-list/art-list.component';
+import { Art } from '@shared/art.model';
 
 @Component({
 	selector: 'app-art-favorites',

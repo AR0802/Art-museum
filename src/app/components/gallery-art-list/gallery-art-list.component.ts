@@ -2,12 +2,12 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { catchError, Subscription } from 'rxjs';
 
 import { GalleryArtItemComponent } from './gallery-art-item/gallery-art-item.component';
-import { PaginationComponent } from '../../shared/pagination/pagination.component';
-import { LoaderComponent } from '../../shared/loader/loader.component';
-import { Art } from '../art.model';
-import { ArtsService } from '../arts.service';
-import { PlaceholderDirective } from '../../shared/placeholder.directive';
-import { AlertComponent } from '../../shared/alert/alert.component';
+import { PaginationComponent } from '../pagination/pagination.component';
+import { LoaderComponent } from '../loader/loader.component';
+import { AlertComponent } from '../alert/alert.component';
+import { Art } from '@shared/art.model';
+import { HttpService } from '@shared/http.service';
+import { PlaceholderDirective } from '@shared/placeholder.directive';
 
 @Component({
 	selector: 'app-gallery-art-list',
@@ -28,10 +28,10 @@ export class GalleryArtListComponent implements OnInit, OnDestroy {
 	@ViewChild(PlaceholderDirective)
 	alertHost!: PlaceholderDirective;
 
-	constructor(private artsService: ArtsService) {}
+	constructor(private httpService: HttpService) {}
 
 	ngOnInit(): void {
-		this.subscription = this.artsService
+		this.subscription = this.httpService
 			.getGalleryArtList()
 			.pipe(
 				catchError((errorRes: any) => {
@@ -47,7 +47,7 @@ export class GalleryArtListComponent implements OnInit, OnDestroy {
 	onChange(pageNumber: number) {
 		this.galleryArtList = null;
 		this.anotherSubscription?.unsubscribe();
-		this.anotherSubscription = this.artsService
+		this.anotherSubscription = this.httpService
 			.getGalleryArtList(pageNumber)
 			.subscribe(
 				(arts: Partial<{ data: Art[] }>) => (this.galleryArtList = arts.data)

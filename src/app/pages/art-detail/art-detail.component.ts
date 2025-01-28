@@ -2,11 +2,11 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { catchError, Subscription } from 'rxjs';
 
-import { ArtsService } from '../arts.service';
-import { Art } from '../art.model';
-import { LoaderComponent } from '../../shared/loader/loader.component';
-import { PlaceholderDirective } from '../../shared/placeholder.directive';
-import { AlertComponent } from '../../shared/alert/alert.component';
+import { LoaderComponent } from '@components/loader/loader.component';
+import { AlertComponent } from '@components/alert/alert.component';
+import { PlaceholderDirective } from '@shared/placeholder.directive';
+import { Art } from '@shared/art.model';
+import { HttpService } from '@shared/http.service';
 
 @Component({
 	selector: 'app-art-detail',
@@ -25,13 +25,13 @@ export class ArtDetailComponent implements OnInit, OnDestroy {
 
 	constructor(
 		private activateRoute: ActivatedRoute,
-		private artsService: ArtsService
+		private httpService: HttpService
 	) {}
 
 	ngOnInit(): void {
 		this.subscription = this.activateRoute.params.subscribe((params) => {
 			this.id = params['id'];
-			this.artsService
+			this.httpService
 				.getArtById(this.id)
 				.pipe(
 					catchError((errorRes: any) => {

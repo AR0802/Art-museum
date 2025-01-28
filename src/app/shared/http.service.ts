@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
-export class ArtsService {
+export class HttpService {
 	constructor(private http: HttpClient) {}
 
 	getArtList() {

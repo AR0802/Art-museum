@@ -2,10 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subscription } from 'rxjs';
 
-import { ArtItemComponent } from '../../arts/art-list/art-item/art-item.component';
-import { ArtsService } from '../../arts/arts.service';
-import { Art } from '../../arts/art.model';
+import { ArtItemComponent } from '../art-list/art-item/art-item.component';
 import { LoaderComponent } from '../loader/loader.component';
+import { HttpService } from '@shared/http.service';
+import { Art } from '@shared/art.model';
 
 @Component({
 	selector: 'app-search-bar',
@@ -24,7 +24,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
 		Validators.maxLength(50),
 	]);
 
-	constructor(private artsService: ArtsService) {}
+	constructor(private httpService: HttpService) {}
 
 	ngOnInit(): void {
 		this.searchSubscription = this.searchControl.valueChanges
@@ -39,11 +39,11 @@ export class SearchBarComponent implements OnInit, OnDestroy {
 				}
 				this.arts = [];
 				this.subscription?.unsubscribe();
-				this.subscription = this.artsService
+				this.subscription = this.httpService
 					.getArtBySearch(newSearchString)
 					.subscribe((arts: any) => {
 						for (const art of arts.data) {
-							this.artsService
+							this.httpService
 								.getArtById(art.id)
 								.subscribe((art: any) => this.arts.push(art.data));
 						}

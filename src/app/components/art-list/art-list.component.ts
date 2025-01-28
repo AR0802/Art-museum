@@ -2,11 +2,11 @@ import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { catchError, Subscription } from 'rxjs';
 
 import { ArtItemComponent } from './art-item/art-item.component';
-import { Art } from '../art.model';
-import { ArtsService } from '../arts.service';
-import { LoaderComponent } from '../../shared/loader/loader.component';
-import { PlaceholderDirective } from '../../shared/placeholder.directive';
-import { AlertComponent } from '../../shared/alert/alert.component';
+import { AlertComponent } from '../alert/alert.component';
+import { LoaderComponent } from '../loader/loader.component';
+import { Art } from '@shared/art.model';
+import { HttpService } from '@shared/http.service';
+import { PlaceholderDirective } from '@shared/placeholder.directive';
 
 @Component({
 	selector: 'app-art-list',
@@ -23,13 +23,13 @@ export class ArtListComponent implements OnInit, OnDestroy {
 	@ViewChild(PlaceholderDirective)
 	alertHost!: PlaceholderDirective;
 
-	constructor(private artsService: ArtsService) {}
+	constructor(private httpService: HttpService) {}
 
 	ngOnInit(): void {
 		if (this.isFavoritePage && this.favoriteArts) {
 			this.artList = this.favoriteArts;
 		} else {
-			this.subscription = this.artsService
+			this.subscription = this.httpService
 				.getArtList()
 				.pipe(
 					catchError((errorRes: any) => {

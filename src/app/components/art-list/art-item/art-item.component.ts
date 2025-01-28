@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Art } from '../../art.model';
+import { Art } from '@shared/art.model';
 
 @Component({
-	selector: 'app-gallery-art-item',
-	templateUrl: './gallery-art-item.component.html',
-	styleUrl: './gallery-art-item.component.css',
+	selector: 'app-art-item',
+	templateUrl: './art-item.component.html',
+	styleUrl: './art-item.component.css',
 })
-export class GalleryArtItemComponent implements OnInit {
+export class ArtItemComponent implements OnInit {
 	favorite: boolean = false;
 	@Input() id!: number;
 	@Input() description: string = '';
