@@ -4,11 +4,13 @@ import { Subscription } from 'rxjs';
 
 import { ArtsService } from '../arts.service';
 import { Art } from '../art.model';
+import { LoaderComponent } from '../../shared/loader/loader.component';
 
 @Component({
 	selector: 'app-art-detail',
 	templateUrl: './art-detail.component.html',
 	styleUrl: './art-detail.component.css',
+	imports: [LoaderComponent],
 })
 export class ArtDetailComponent implements OnInit, OnDestroy {
 	id!: number;

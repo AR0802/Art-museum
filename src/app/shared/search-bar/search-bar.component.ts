@@ -5,15 +5,17 @@ import { debounceTime, distinctUntilChanged, Subscription } from 'rxjs';
 import { ArtItemComponent } from '../../arts/art-list/art-item/art-item.component';
 import { ArtsService } from '../../arts/arts.service';
 import { Art } from '../../arts/art.model';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
 	selector: 'app-search-bar',
 	templateUrl: './search-bar.component.html',
-	imports: [ReactiveFormsModule, ArtItemComponent],
+	imports: [ReactiveFormsModule, ArtItemComponent, LoaderComponent],
 	styleUrl: './search-bar.component.css',
 })
 export class SearchBarComponent implements OnInit, OnDestroy {
 	arts: Art[] = [];
+	loading: boolean = false;
 	searchSubscription: Subscription | undefined;
 	subscription: Subscription | undefined;
 	searchString: string = '';
@@ -28,9 +30,11 @@ export class SearchBarComponent implements OnInit, OnDestroy {
 		this.searchSubscription = this.searchControl.valueChanges
 			.pipe(debounceTime(1000), distinctUntilChanged())
 			.subscribe((newSearchString: any) => {
+				this.loading = true;
 				this.searchString = newSearchString;
 				if (!this.searchControl.valid) {
 					this.arts = [];
+					this.loading = false;
 					return;
 				}
 				this.arts = [];
@@ -43,6 +47,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
 								.getArtById(art.id)
 								.subscribe((art: any) => this.arts.push(art.data));
 						}
+						this.loading = false;
 					});
 			});
 	}

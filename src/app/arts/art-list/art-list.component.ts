@@ -4,15 +4,16 @@ import { Subscription } from 'rxjs';
 import { ArtItemComponent } from './art-item/art-item.component';
 import { Art } from '../art.model';
 import { ArtsService } from '../arts.service';
+import { LoaderComponent } from '../../shared/loader/loader.component';
 
 @Component({
 	selector: 'app-art-list',
-	imports: [ArtItemComponent],
+	imports: [ArtItemComponent, LoaderComponent],
 	templateUrl: './art-list.component.html',
 	styleUrl: './art-list.component.css',
 })
 export class ArtListComponent implements OnInit, OnDestroy {
-	artList!: Art[];
+	artList: Art[] = [];
 	subscription: Subscription | undefined;
 	@Input() favoriteArts: Art[] | undefined;
 

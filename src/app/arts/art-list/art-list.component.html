@@ -1,21 +1,27 @@
-<div class="art-list">
-	@for (art of artList; track art.id) {
-		<app-art-item
-			[id]="art.id"
-			[description]="art.title"
-			[author]="art.artist_title"
-			[privacy]="art.is_public_domain ? 'Public' : 'Private'"
-			[imageId]="art.image_id"
-			[dateEnd]="art.date_end"
-		/>
-	}
-	<a
-		title="Alphabetically"
-		class="sortByAlphabetButton"
-		(click)="onSortByAlphabet()"
-		>Sort by title</a
-	>
-	<a class="sortByDateButton" (click)="onSortByEndDate()"
-		>Sort by end date of work</a
-	>
-</div>
+@if (!artList.length) {
+	<div class="loader-container">
+		<app-loader />
+	</div>
+} @else {
+	<div class="art-list">
+		@for (art of artList; track art.id) {
+			<app-art-item
+				[id]="art.id"
+				[description]="art.title"
+				[author]="art.artist_title"
+				[privacy]="art.is_public_domain ? 'Public' : 'Private'"
+				[imageId]="art.image_id"
+				[dateEnd]="art.date_end"
+			/>
+		}
+		<a
+			title="Alphabetically"
+			class="sortByAlphabetButton"
+			(click)="onSortByAlphabet()"
+			>Sort by title</a
+		>
+		<a class="sortByDateButton" (click)="onSortByEndDate()"
+			>Sort by end date of work</a
+		>
+	</div>
+}

@@ -10,3 +10,7 @@ ngb-pagination /deep/ .page-item.active .page-link {
 	background-color: #e77a07;
 	color: #fff;
 }
+
+.pagination {
+	margin: 0 16%;
+}

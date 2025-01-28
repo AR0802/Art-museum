@@ -1,15 +1,23 @@
-<div class="gallery">
-	<div class="gallery-items">
-		@for (art of galleryArtList; track art.id) {
-			<app-gallery-art-item
-				[id]="art.id"
-				[description]="art.title"
-				[author]="art.artist_title"
-				[privacy]="art.is_public_domain ? 'Public' : 'Private'"
-				[imageId]="art.image_id"
-				[dateEnd]="art.date_end"
-			/>
-		}
+@if (!galleryArtList) {
+	<div class="loader-container">
+		<app-loader />
 	</div>
+} @else {
+	<div class="gallery">
+		<div class="gallery-items">
+			@for (art of galleryArtList; track art.id) {
+				<app-gallery-art-item
+					[id]="art.id"
+					[description]="art.title"
+					[author]="art.artist_title"
+					[privacy]="art.is_public_domain ? 'Public' : 'Private'"
+					[imageId]="art.image_id"
+					[dateEnd]="art.date_end"
+				/>
+			}
+		</div>
+	</div>
+}
+@if (galleryArtList !== undefined) {
 	<app-pagination (onChange)="onChange($event)" />
-</div>
+}
