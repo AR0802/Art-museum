@@ -16,8 +16,8 @@ import { LoaderComponent } from '../loader/loader.component';
 export class SearchBarComponent implements OnInit, OnDestroy {
 	arts: Art[] = [];
 	loading: boolean = false;
-	searchSubscription: Subscription | undefined;
-	subscription: Subscription | undefined;
+	private searchSubscription: Subscription | undefined;
+	private subscription: Subscription | undefined;
 	searchString: string = '';
 	searchControl = new FormControl(this.searchString, [
 		Validators.required,

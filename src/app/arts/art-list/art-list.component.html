@@ -1,18 +1,21 @@
-@if (!artList.length) {
+<ng-template appPlaceholder></ng-template>
+@if (!isFavoritePage && !artList.length) {
 	<div class="loader-container">
 		<app-loader />
 	</div>
 } @else {
 	<div class="art-list">
 		@for (art of artList; track art.id) {
-			<app-art-item
-				[id]="art.id"
-				[description]="art.title"
-				[author]="art.artist_title"
-				[privacy]="art.is_public_domain ? 'Public' : 'Private'"
-				[imageId]="art.image_id"
-				[dateEnd]="art.date_end"
-			/>
+			@defer {
+				<app-art-item
+					[id]="art.id"
+					[description]="art.title"
+					[author]="art.artist_title"
+					[privacy]="art.is_public_domain ? 'Public' : 'Private'"
+					[imageId]="art.image_id"
+					[dateEnd]="art.date_end"
+				/>
+			}
 		}
 		<a
 			title="Alphabetically"

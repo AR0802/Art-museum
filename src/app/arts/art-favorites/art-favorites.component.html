@@ -4,9 +4,9 @@
 		<span class="title-highlighted">Favorites</span>
 	</h1>
 	<app-topic intro="Saved by you" description="Your favorites list" />
-	@if (!favoriteArts.length) {
+	@if (isLoading && !favoriteArts.length) {
 		<app-loader />
 	} @else {
-		<app-art-list [favoriteArts]="favoriteArts" />
+		<app-art-list [favoriteArts]="favoriteArts" [isFavoritePage]="true" />
 	}
 </article>
