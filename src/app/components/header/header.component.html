@@ -2,6 +2,8 @@
 	<span class="header-name"
 		>Museum of <span class="header-name-highlighted">Art</span></span
 	>
+	<app-drawer-toggle (onClick)="onToggle($event)" [isOpen]="isOpen" />
+	<app-side-drawer [show]="isOpen" (onToggle)="onToggle($event)" />
 	<nav class="header-nav">
 		<a
 			class="header-nav-a"

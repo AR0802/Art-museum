@@ -1,0 +1,18 @@
+<app-backdrop [show]="show" (onToggle)="onClick()" />
+<div class="side-drawer {{ show ? 'open' : 'closed' }}" (click)="onClick()">
+	<nav>
+		<ul>
+			<li class="navigation-item">
+				<a
+					routerLink="/"
+					routerLinkActive="active"
+					[routerLinkActiveOptions]="{ exact: true }"
+					>Home</a
+				>
+			</li>
+			<li class="navigation-item">
+				<a routerLink="/favorites" routerLinkActive="active">Favorites</a>
+			</li>
+		</ul>
+	</nav>
+</div>

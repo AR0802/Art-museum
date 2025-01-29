@@ -138,12 +138,117 @@
 	transition: transform 1s ease-in-out;
 }
 
-.detail-favorite-icon:hover {
-	.detail-favorite-icon-color {
-		fill: #da740a;
+.detail-favorite-icon-color.detail-favorite {
+	fill: #da740a;
+}
+
+@media (hover: hover) {
+	.detail-favorite-icon:hover {
+		.detail-favorite-icon-color {
+			fill: #da740a;
+		}
 	}
 }
 
-.detail-favorite.detail-favorite-icon-color {
-	fill: #da740a;
+@media (hover: none) {
+	.detail-favorite-icon:active {
+		.detail-favorite-icon-color {
+			fill: #da740a;
+		}
+	}
+}
+
+@media (max-width: 400px) {
+	.detail-image {
+		width: 20rem;
+		height: 20rem;
+		top: 8rem;
+		left: 2rem;
+	}
+
+	.detail-favorite-icon {
+		left: 17.8rem;
+		top: 9rem;
+	}
+
+	.detail-description {
+		top: 30rem;
+		left: 2rem;
+		width: 20rem;
+	}
+
+	.detail-author {
+		top: 35rem;
+		left: 2rem;
+	}
+
+	.detail-date {
+		top: 37.5rem;
+		left: 2rem;
+	}
+
+	.detail-overview {
+		top: 43rem;
+		left: 2rem;
+	}
+
+	.detail-overview-style-name {
+		top: 46rem;
+		left: 2rem;
+	}
+
+	.detail-overview-style-desc {
+		top: 46rem;
+		left: 4.8rem;
+		width: 17.2rem;
+	}
+
+	.detail-overview-dimensions-name {
+		top: 48rem;
+		left: 2rem;
+	}
+
+	.detail-overview-dimensions-desc {
+		top: 48rem;
+		left: 10.5rem;
+		width: 11.5rem;
+	}
+
+	.detail-overview-credit-name {
+		top: 50rem;
+		left: 2rem;
+	}
+
+	.detail-overview-credit-desc {
+		top: 50rem;
+		left: 7.5rem;
+		width: 14.5rem;
+	}
+
+	.detail-overview-place-name {
+		top: 52rem;
+		left: 2rem;
+	}
+
+	.detail-overview-place-desc {
+		top: 52rem;
+		left: 9rem;
+	}
+
+	.detail-privacy {
+		top: 53.9rem;
+		left: 2rem;
+	}
+}
+
+@media (max-width: 400px) and (max-height: 700px) {
+	.detail {
+		height: 59rem;
+	}
+}
+
+@media (max-width: 400px) and (min-height: 700px) and (max-height: 1000px) {
+	.detail {
+		height: 70rem;
+	}
 }

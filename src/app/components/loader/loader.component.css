@@ -18,3 +18,11 @@
 		transform: rotate(360deg);
 	}
 }
+
+@media (max-width: 400px) {
+	.loader {
+		width: 8rem;
+		height: 8rem;
+		margin-left: 35%;
+	}
+}

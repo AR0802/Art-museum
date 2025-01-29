@@ -54,12 +54,22 @@
 	cursor: pointer;
 }
 
-.art-item-favorite-icon:hover {
-	.art-item-favorite-icon-color {
-		fill: #da740a;
+.art-item-favorite-icon-color.art-item-favorite {
+	fill: #da740a;
+}
+
+@media (hover: hover) {
+	.art-item-favorite-icon:hover {
+		.art-item-favorite-icon-color {
+			fill: #da740a;
+		}
 	}
 }
 
-.art-item-favorite.art-item-favorite-icon-color {
-	fill: #da740a;
+@media (hover: none) {
+	.art-item-favorite-icon:active {
+		.art-item-favorite-icon-color {
+			fill: #da740a;
+		}
+	}
 }

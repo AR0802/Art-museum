@@ -57,12 +57,22 @@
 	cursor: pointer;
 }
 
-.gallery-art-item-favorite-icon:hover {
-	.gallery-art-item-favorite-icon-color {
-		fill: #da740a;
+.gallery-art-item-favorite-icon-color.gallery-art-item-favorite {
+	fill: #da740a;
+}
+
+@media (hover: hover) {
+	.gallery-art-item-favorite-icon:hover {
+		.gallery-art-item-favorite-icon-color {
+			fill: #da740a;
+		}
 	}
 }
 
-.gallery-art-item-favorite.gallery-art-item-favorite-icon-color {
-	fill: #da740a;
+@media (hover: none) {
+	.gallery-art-item-favorite-icon:active {
+		.gallery-art-item-favorite-icon-color {
+			fill: #da740a;
+		}
+	}
 }

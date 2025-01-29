@@ -33,3 +33,9 @@
 .header-nav-a.active {
 	color: #e0a449;
 }
+
+@media (max-width: 400px) {
+	.header-nav {
+		display: none;
+	}
+}
